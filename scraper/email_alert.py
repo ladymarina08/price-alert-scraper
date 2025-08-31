@@ -1,13 +1,18 @@
 import smtplib
+import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from dotenv import load_dotenv
+
+load_dotenv()
+
+remetente = os.getenv("EMAIL_REMETENTE")
+senha = os.getenv("EMAIL_SENHA")
+destinatario = os.getenv("EMAIL_DESTINATARIO")
+
 
 def enviar_email_alerta(preco, preco_alvo, url_produto):
-    #Configs
-    remetente = "marina.takeda08@gmail.com"
-    senha = "nvic ahvo idkc qwqy"
-    destinatario = "lindinha08ex@gmail.com"
-
+   
     #Email
     assunto = "💥 O Whey baixou de preço!"
     corpo = f"""
